@@ -1,8 +1,196 @@
-body {
-    font-family: Arial, sans-serif;
+body
+{
+    margin: 0;
+    font-family: courier;
     margin: 40px;
+
+    background-color: #a5b1b9;
+    color: black;
 }
 
-h1 {
+header
+{
+    background-color: black;
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+header h1
+{
+    margin: 0;
     font-size: 40px;
+}
+
+header p
+{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #bbbbbb;
+}
+
+main
+{
+    width: 90%;
+    max-width: 800px;
+
+    margin: 40px auto;
+}
+
+section
+{
+    background-color: white;
+
+    padding: 25px;
+    margin-bottom: 30px;
+
+    border-radius: 8px;
+
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2
+{
+    margin-top: 0px;
+}
+
+form div
+{
+    margin-bottom: 20px;
+}
+
+label
+{
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: bold;
+}
+
+input, textarea
+{
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+textarea
+{
+    resize: vertical;
+}
+
+button
+{
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: black;
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-color: darkslategray;
+}
+
+article
+{
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+article:last-child
+{
+    border-bottom: none;
+}
+
+article h3
+{
+    margin-top: 0;
+    margin-bottom: 8px;
+
+    font-size:25px;
+}
+
+article p
+{
+    line-height: 1.5;
+}
+
+article a
+{
+    display: inline-block;
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    padding: 8px 15px;
+
+    background-color: #bbbbbb;
+    color: black;
+
+    border-radius: 5px;
+}
+
+article a:hover
+{
+    background-color: gray;
+}
+
+article form
+{
+    display: inline;
+}
+
+article form button
+{
+    background-color: rgb(169, 49, 49);
+}
+
+article form button:hover
+{
+    background-color: darkred;
+}
+
+@media (max-width: 600px)
+{
+    header h1
+    {
+        font-size: 32px;
+    }
+
+    main
+    {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    section
+    {
+        padding: 18px;
+    }
+
+    article h3
+    {
+        font-size: 22px;
+    }
+
+    button, article a
+    {
+        font-size: 14px;
+    }
 }

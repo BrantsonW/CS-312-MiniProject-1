@@ -37,7 +37,6 @@ app.post("/posts", (req, res) => {
     //add the new post
     posts.push(newPost);
 
-    //send back to home
     res.redirect("/");
 });
 
@@ -53,6 +52,4 @@ app.post("/posts/:id/delete", (req, res) => {
     res.redirect("/");
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+app.listen(PORT, () => {});

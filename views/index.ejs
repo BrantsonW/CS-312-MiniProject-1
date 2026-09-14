@@ -7,7 +7,7 @@
 
     <title>My Blog</title>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -21,45 +21,78 @@
 
     <main>
 
+        <!-- CREATING POSTS -->
         <section>
 
-            <h2>
-                CREATE A POST
-            </h2>
+            <h2>CREATE A POST</h2>
 
             <form action="/posts" method="POST">
 
                 <div>
-                    <label for="author">
-                        NAME
-                    </label>
+                    <label for="author">NAME</label>
 
                     <input type="text" id="author" name="author" required>
                 </div>
 
                 <div>
-                    <label for="title">
-                        TITLE
-                    </label>
+                    <label for="title">TITLE</label>
 
                     <input type="text" id="title" name="title" required>
                 </div>
 
                 <div>
-                    <label for="content">
-                        BLOG
-                    </label>
+                    <label for="content">BLOG</label>
 
                     <textarea id="content" name="content" rows="8" required>
 
                     </textarea>
                 </div>
 
-                <button type="submit">
-                    POST
-                </button>
+                <button type="submit">POST</button>
 
             </form>
+
+        </section>
+
+        <!-- VIEWING POSTS -->
+
+        <section>
+
+            <h2>RECENT POSTS</h2>
+
+            <% if (posts.length === 0) { %>
+                <p>
+                    no posts have been made
+                </p>
+            <% } %>
+
+            <% posts.forEach(post => { %> 
+                <article>
+                    <h3><%= post.title %></h3>
+
+                    <p>
+                        By 
+                        <strong><%= post.author %></strong>
+                    </p>
+
+                    <p>
+                        <%= post.createdAt.toLocaleString() %>
+                    </p>
+
+                    <p>
+                        <%= post.content %>
+                    </p>
+
+                    <a href="/posts/<%= post.id %>/edit">EDIT</a>
+
+                    <form action ="/posts/<%= post.id %>/delete" method="POST">
+
+                        <button type="submit">DELETE</button>
+
+                    </form>
+
+                </article>
+            <% }); %>
 
         </section>
 

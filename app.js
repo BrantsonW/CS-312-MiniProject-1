@@ -41,10 +41,22 @@ app.post("/posts", (req, res) => {
 });
 
 app.get("/posts/:id/edit", (req, res) => {
-    res.send("Edit page will go here.");
+    const id = Number(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    res.render("edit", { post: post });
 });
 
 app.post("/posts/:id/edit", (req, res) => {
+    const id = Number(req.params.id);
+
+    const post = posts.find(post => post.id === id);
+
+    post.author = req.body.author;
+    post.title = req.body.title;
+    post.content = req.body.content;
+
     res.redirect("/");
 });
 

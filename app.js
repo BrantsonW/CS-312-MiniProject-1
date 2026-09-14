@@ -42,33 +42,44 @@ app.post("/posts", (req, res) => {
 
 //EDITING BLOG POSTS
 app.get("/posts/:id/edit", (req, res) => {
+    //get the id from the url
     const id = Number(req.params.id);
 
+    //find the post with id
     const post = posts.find(post => post.id === id);
 
+    //render that post on the edit page
     res.render("edit", { post: post });
 });
 
 //SAVING EDITTED BLOG POSTS
 app.post("/posts/:id/edit", (req, res) => {
+    //get the id from the url
     const id = Number(req.params.id);
 
+    //find the post with id
     const post = posts.find(post => post.id === id);
 
+    //update the post info
     post.author = req.body.author;
     post.title = req.body.title;
     post.content = req.body.content;
 
+    //send back to home
     res.redirect("/");
 });
 
 //DELETING BLOG POSTS
 app.post("/posts/:id/delete", (req, res) => {
+    //get the id from url
     const id = Number(req.params.id);
 
+    //keep all posts but deleted one
     posts = posts.filter(post => post.id !== id);
 
+    //send back to home
     res.redirect("/");
 });
 
+//START SERVER
 app.listen(PORT, () => {});

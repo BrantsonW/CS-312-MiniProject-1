@@ -40,6 +40,7 @@ app.post("/posts", (req, res) => {
     res.redirect("/");
 });
 
+//EDITING BLOG POSTS
 app.get("/posts/:id/edit", (req, res) => {
     const id = Number(req.params.id);
 
@@ -48,6 +49,7 @@ app.get("/posts/:id/edit", (req, res) => {
     res.render("edit", { post: post });
 });
 
+//SAVING EDITTED BLOG POSTS
 app.post("/posts/:id/edit", (req, res) => {
     const id = Number(req.params.id);
 
@@ -60,7 +62,12 @@ app.post("/posts/:id/edit", (req, res) => {
     res.redirect("/");
 });
 
+//DELETING BLOG POSTS
 app.post("/posts/:id/delete", (req, res) => {
+    const id = Number(req.params.id);
+
+    posts = posts.filter(post => post.id !== id);
+
     res.redirect("/");
 });
 
